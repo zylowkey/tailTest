@@ -22,7 +22,7 @@ public class LogWebSocketHandle {
 	public void onOpen(Session session) {
 		try {
 			// 执行tail -f命令
-			process = Runtime.getRuntime().exec("tail -f /home/jkapp/liaolei/ghweb/apache-tomcat-8.5.33/logs/catalina.out");
+			process = Runtime.getRuntime().exec("tail -1000f /home/jkapp/liaolei/ghweb/apache-tomcat-8.5.33/logs/catalina.out");
 			inputStream = process.getInputStream();
 			
 			// 一定要启动新的线程，防止InputStream阻塞处理WebSocket的线程
